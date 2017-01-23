@@ -1,0 +1,25 @@
+more to add
+suicide and default functions
+safe send pattern
+safe maths library
+? name of practice of checking state before and after
+
+plan for game
+
+give teams contract address and abi only - as a json file
+
+call function giving address , function sends an event which needs to be filtered giving a number (blocknumber)
+they then have to call a function to get some coins before blocknumber + 2
+???? maybe their contract has to implement an interface and return a number ????
+event has instructions, add 2 numbers, but answer is always the blocknumber
+event indexed on their address
+
+
+this is on private net (or ropsten) - so will need appropriate ether
+need to register team address and team name and contract address - so i can call a function
+
+have display of messages on screen, showing winning accounts, also if they cheat too hard, freeze their account and put
+up a message about that - have an unfrozen event also (maybe don't protect the freeze and unfreeze functions, so they can cheat on that also )
+let them read the team register state - so they can cheat and change team names etc.
+
+make sure everything is evented and displayed

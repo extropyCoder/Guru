@@ -4,20 +4,33 @@ contract Guru {
 
 mapping(address=>uint) balances;
 mapping(address=>string) teamNames;
-
+mapping (address=>uint) numberRequested;
 address [] teams;
 
 event questionAsked(address team,uint requiredValue);
 event teamAwarded(address team,uint points);
+event teamWrong(address team);
+
 
 function submitAnswer(address _submitter,uint _answer) {
-
-if((_answer > block.number-2)&&(_answer < block.number+2)){
-    balances[_submitter] += 5;
-    teamAwarded(_submitter,5);
+if(numberRequested[_submitter]==_answer){
+  if(_answer > block.number-5){
+      balances[_submitter] += 5;
+      teamAwarded(_submitter,5);
+  }
+}
+else{
+  balances[_submitter] -= 5;
+  teamWrong(_submitter);
 }
 
+
 }
+
+/*function getTeamNames() returns (bytes32 []){
+  return teamNames;
+
+}*/
 
 function getBalances() returns (uint []){
 

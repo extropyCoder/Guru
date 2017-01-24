@@ -18,6 +18,16 @@ contract('Guru', function(accounts) {
     });
   });
 
-
+  it("should get team names", function() {
+    var guru = Guru.deployed();
+    guru.addTeam.sendTransaction(accounts[0],"team two").then(function(Tx) {
+    return guru.getTeamAddresses.call().then(function(teams){
+        for (ii=0;ii<teams.length;ii++){
+          console.log(teams[ii]);
+        }
+        return true;
+    });
+});
+  });
 
 });
